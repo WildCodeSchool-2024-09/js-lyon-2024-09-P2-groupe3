@@ -7,33 +7,33 @@ import "../App.css";
 import BreweriesList from "./BreweriesList";
 
 function Home() {
-	// const [beerCount, setBeerCount] = useState(0);
+  // const [beerCount, setBeerCount] = useState(0);
 
-	return (
-		<>
-			<h2 className="titreMain">Voyagez dans le monde des brasseries</h2>
+  return (
+    <>
+      <h2 className="titreMain">Voyagez dans le monde des brasseries</h2>
 
-			{/* const [isSelection, setSelection] = useState(false); */}
+      {/* const [isSelection, setSelection] = useState(false); */}
 
-			{/* function handleClickSelection() { */}
-			{/* if (isFavorite === false) { */}
-			{/* setBeerCount(beerCount + 1); */}
-			{/* } else {
+      {/* function handleClickSelection() { */}
+      {/* if (isFavorite === false) { */}
+      {/* setBeerCount(beerCount + 1); */}
+      {/* } else {
 //       setBeerCount(beerCount - 1);
 //     }
 //     setSelection(!isSelection);
 //   } */}
 
-			{/* <button type="button" onClick={handleClickSelection}>
+      {/* <button type="button" onClick={handleClickSelection}>
 {isSelection ? "parametre1" : "parametre2"} */}
-			{/* </button> */}
+      {/* </button> */}
 
-			{/* <h3>Ma sélection : {beerCount} brasseries</h3> */}
-			<div className="cardContainer">
-				<BreweriesList />
-			</div>
-		</>
-	);
+      {/* <h3>Ma sélection : {beerCount} brasseries</h3> */}
+      <div className="cardContainer">
+        <BreweriesList />
+      </div>
+    </>
+  );
 }
 
 export default Home;

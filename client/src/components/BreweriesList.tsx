@@ -17,25 +17,21 @@ interface BreweriesListProps {
   toggleFavorite: (breweryId: string) => void;
 }
 
-
 const BreweriesList = ({ favorites, toggleFavorite }: BreweriesListProps) => {
   const [breweries, setBreweries] = useState<Brewery[]>([]);
   useEffect(() => {
     getBreweries();
   }, []);
 
-
-	const getBreweries = () => {
-		fetch(
-			"https://api.openbrewerydb.org/v1/breweries?by_country=england&per_page=200",
-		)
-			.then((response) => response.json())
-			.then((data) => {
-				setBreweries(data);
-			});
-	};
-
-
+  const getBreweries = () => {
+    fetch(
+      "https://api.openbrewerydb.org/v1/breweries?by_country=england&per_page=200",
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setBreweries(data);
+      });
+  };
 
   return (
     <div>
@@ -64,7 +60,6 @@ const BreweriesList = ({ favorites, toggleFavorite }: BreweriesListProps) => {
       </ul>
     </div>
   );
-
 };
 
 export default BreweriesList;

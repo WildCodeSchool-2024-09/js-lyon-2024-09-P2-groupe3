@@ -6,7 +6,6 @@ import BeerContext from "../Contexts/BeerContext";
 import BreweriesList from "./BreweriesList";
 
 function Home() {
-
   const [beerCount, setBeerCount] = useState(0);
   const [favorites, setFavorites] = useState<string[]>([]);
   const toggleFavorite = (breweryId: string) => {
@@ -33,7 +32,6 @@ function Home() {
       </div>
     </>
   );
-
 }
 
 export default Home;

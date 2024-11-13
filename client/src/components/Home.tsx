@@ -1,39 +1,39 @@
-// import { useState } from "react";
+import { useState } from "react";
 import "../App.css";
 
-// import BeerContext from "../Contexts/BeerContext";
-// import { beersList } from "./Beers";
-// import BeersList from "./BeersList";
+import BeerContext from "../Contexts/BeerContext";
+
 import BreweriesList from "./BreweriesList";
 
 function Home() {
-  // const [beerCount, setBeerCount] = useState(0);
+
+  const [beerCount, setBeerCount] = useState(0);
+  const [favorites, setFavorites] = useState<string[]>([]);
+  const toggleFavorite = (breweryId: string) => {
+    if (favorites.includes(breweryId)) {
+      setFavorites(favorites.filter((id) => id !== breweryId));
+      setBeerCount(beerCount - 1);
+    } else {
+      setFavorites([...favorites, breweryId]);
+      setBeerCount(beerCount + 1);
+    }
+  };
 
   return (
     <>
       <h2 className="titreMain">Voyagez dans le monde des brasseries</h2>
-
-      {/* const [isSelection, setSelection] = useState(false); */}
-
-      {/* function handleClickSelection() { */}
-      {/* if (isFavorite === false) { */}
-      {/* setBeerCount(beerCount + 1); */}
-      {/* } else {
-//       setBeerCount(beerCount - 1);
-//     }
-//     setSelection(!isSelection);
-//   } */}
-
-      {/* <button type="button" onClick={handleClickSelection}>
-{isSelection ? "parametre1" : "parametre2"} */}
-      {/* </button> */}
-
-      {/* <h3>Ma sélection : {beerCount} brasseries</h3> */}
+      <h3>Ma sélection : {beerCount} brasseries</h3>
       <div className="cardContainer">
-        <BreweriesList />
+        <BeerContext.Provider value={{ beerCount, setBeerCount }}>
+          <BreweriesList
+            favorites={favorites}
+            toggleFavorite={toggleFavorite}
+          />
+        </BeerContext.Provider>
       </div>
     </>
   );
+
 }
 
 export default Home;

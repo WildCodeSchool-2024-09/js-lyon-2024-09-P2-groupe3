@@ -1,13 +1,12 @@
-import { useState } from "react";
 import "./App.css";
 
-import BeerContext from "./Contexts/BeerContext";
-import { beersList } from "./components/Beers";
-import BeersList from "./components/BeersList";
+import { Link, Outlet } from "react-router-dom";
+
+// import BeerContext from "./Contexts/BeerContext";
+// import BeersList from "./components/BeersList";
+// import BreweriesList from "./components/BreweriesList";
 
 function App() {
-  const [beerCount, setBeerCount] = useState(0);
-
   return (
     <>
       <header>
@@ -22,17 +21,22 @@ function App() {
         <button type="button" className="burger-menu">
           ☰ Menu
         </button>
+
+        <nav className="barreNav">
+          <Link to="/" className="homeLink">
+            Home
+          </Link>
+          <Link to="/mes-favoris" className="homeLink">
+            Mes favoris
+          </Link>
+          <Link to="/notre-histoire" className="homeLink">
+            Notre histoire
+          </Link>
+        </nav>
       </header>
+
       <main>
-        <h2 className="titreMain">
-          Voyagez dans le monde des brasseries écossaises
-        </h2>
-        <h3>Ma sélection : {beerCount} brasseries</h3>
-        <div className="cardContainer">
-          <BeerContext.Provider value={{ beerCount, setBeerCount }}>
-            <BeersList beers={beersList} />
-          </BeerContext.Provider>
-        </div>
+        <Outlet />
       </main>
       <footer>
         <p>Coordonées - 2024</p>

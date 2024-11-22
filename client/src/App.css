@@ -1,113 +1,16 @@
-@media screen and (max-width: 767px) {
-  .barreNav {
-    display: none;
-  }
-
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
 * {
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-header {
-  background-color: #fad96f;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  height: 6em;
-}
-header .h1-logo-container {
-  display: flex;
-  flex-direction: row;
-  margin-top: 1em;
-}
-header .logoImg {
-  height: 4em;
-  padding-left: 0.5em;
-}
-header .burger-menu {
-  background-color: #fad96f;
-  border: none;
-  font-size: large;
+
+body {
+  background-color: #1e1e1e;
 }
 
-main .titreMain {
-  text-align: center;
-  margin-top: 1em;
-  padding-left: 2em;
-  font-family: "Jaini Purva", system-ui;
-  font-size: 2.75rem;
-  font-style: normal;
-}
-.cardContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.card {
-  background-color: #d9d9d9;
-  margin-top: 2em;
-  width: 12em;
-  padding: 2em;
-}
-.nameBrasserie {
-  text-align: center;
-}
-.cardList {
-  list-style: none;
-  padding-left: 0;
-}
 footer {
-  background-color: #fad96f;
+  background-color: #ec9d00;
   height: 4em;
   margin-top: 3em;
   text-align: center;
   padding-top: 4em;
-}
-
-.boutonSoif {
-  background-color: #fad96f;
-  border-color: black;
-  font-size: 1.5em;
-  width: 5em;
-  margin-bottom: 1em;
-  margin-top: 1em;
-}
-
-@media screen and (min-width: 768px) {
-  .burger-menu {
-    display: none;
-  }
-}
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.barreNav {
-  padding-left: 2em;
-}
-.homeLink {
-  padding-right: 1em;
-  text-decoration: none;
-  font-size: x-large;
-  color: black;
-  font-weight: bold;
-}
-.homeLink:hover {
-  color: #ec9d00;
-  font-weight: bold;
-}
-
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
 }

@@ -4,9 +4,9 @@ import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import App from "./App";
-import Home from "./components/Home";
-import MesFavoris from "./components/MesFavoris";
-import NotreHistoire from "./components/NotreHistoire";
+import Home from "./pages/Home";
+import MesFavoris from "./pages/MesFavoris";
+import NotreHistoire from "./pages/NotreHistoire";
 
 import { BeerProvider } from "./Contexts/BeerContext";
 

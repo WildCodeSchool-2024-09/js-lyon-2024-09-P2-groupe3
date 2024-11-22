@@ -1,54 +1,18 @@
-import { useEffect, useState } from "react";
-
-export interface Beer {
-  id: number;
-  name: string;
-  brewery_type: string;
-  address: string;
-  city: string;
-  state_province: string;
-  postal_code: string;
-  country: string;
-  website_url: string;
-  state: string;
-}
+import { useContext, useState } from "react";
+import BeerContext from "../Contexts/BeerContext";
 
 function Filter() {
-  const [breweries, setBreweries] = useState<Beer[]>([]);
-  useEffect(() => {
-    getBreweries();
-  }, []);
+  const { breweries } = useContext(BeerContext);
 
-  const getBreweries = () => {
-    const urls = [
-      "https://api.openbrewerydb.org/v1/breweries?by_country=england&per_page=200",
-      "https://api.openbrewerydb.org/v1/breweries?by_country=austria&per_page=200",
-      "https://api.openbrewerydb.org/v1/breweries?by_country=france&per_page=200",
-      "https://api.openbrewerydb.org/v1/breweries?by_country=isle_of_man&per_page=200",
-      "https://api.openbrewerydb.org/v1/breweries?by_country=irland&per_page=200",
-      "https://api.openbrewerydb.org/v1/breweries?by_country=poland&per_page=200",
-      "https://api.openbrewerydb.org/v1/breweries?by_country=portugal&per_page=200",
-      "https://api.openbrewerydb.org/v1/breweries?by_country=scotland&per_page=200",
-    ];
-
-    const fetchPromises = urls.map((url) => fetch(url));
-    Promise.all(fetchPromises)
-      .then((responses) =>
-        Promise.all(responses.map((response) => response.json())),
-      )
-      .then((data) => {
-        const breweries = data.flat();
-
-        setBreweries(breweries);
-      });
-  };
-  const [filteredBreweries, setFilteredBreweries] = useState<Beer[]>(breweries);
+  const [filteredBreweries, setFilteredBreweries] = useState(breweries);
   const [filter, setFilter] = useState(false);
 
+  // déclaration des states pour récupérer les réponses des sélections par pays, provinces et citiess dans un tableau, qui ne sera visible qu'au clic sur valider
   const [tempCountries, setTempCountries] = useState<string[]>([]);
   const [tempProvinces, setTempProvinces] = useState<string[]>([]);
   const [tempCities, setTempCities] = useState<string[]>([]);
 
+  // changement du state au clic en fonction des countries/provinces/cities sélectionnés avec la fonction ternaire
   const handleTempCountryChange = (country: string) => {
     const newSelectedCountries = tempCountries.includes(country)
       ? tempCountries.filter((c) => c !== country)
@@ -70,9 +34,12 @@ function Filter() {
     setTempCities(newTempCities);
   };
 
+  // le filtre s'applique en fonction des countries, provinces, cities sélectionnés
   const handleApplyFilters = () => {
     filterBreweries(tempCountries, tempProvinces, tempCities);
   };
+
+  // affichage dans un Array des brasseries sélectionnées en fonction des countries/provinces/citiess
   const countries = Array.from(
     new Set(breweries.map((brewery) => brewery.country)),
   );
@@ -93,6 +60,7 @@ function Filter() {
     ),
   );
 
+  // retourne une nouvelle liste de brasseries par countries/provinces/cities selon le filtre utilisé : si le tableau countries/provinces/cities est vide (! country.length) on accepte toute les brasseries quel que soit le countries sinon on vérifie si le brewery.country est inclu dans countries
   const filterBreweries = (
     countries: string[],
     provinces: string[],
@@ -108,9 +76,10 @@ function Filter() {
     );
   };
 
+  // chaque input propose des choix de countries/provinces/cities
   return (
     <>
-      <div>
+      <div className="filtres">
         <button
           type="button"
           className="boutonSoif"
@@ -120,10 +89,10 @@ function Filter() {
         </button>
         {filter && (
           <div>
-            <h2>Filtrer par :</h2>
+            <h2 className="boutonSoif">Filtrer par :</h2>
 
             {countries.map((country) => (
-              <div key={country}>
+              <div className="listeFiltre" key={country}>
                 <input
                   type="checkbox"
                   id={country}
@@ -136,9 +105,9 @@ function Filter() {
 
             {provinces.length > 0 && (
               <>
-                <h2>Régions/States</h2>
+                <h2 className="boutonSoif">Régions/States</h2>
                 {provinces.map((province) => (
-                  <div key={province}>
+                  <div className="listeFiltre" key={province}>
                     <input
                       type="checkbox"
                       id={province}
@@ -153,9 +122,9 @@ function Filter() {
 
             {cities.length > 0 && (
               <>
-                <h2>Villes</h2>
+                <h2 className="boutonSoif">Villes</h2>
                 {cities.map((city) => (
-                  <div key={city}>
+                  <div className="listeFiltre" key={city}>
                     <input
                       type="checkbox"
                       id={city}
@@ -167,12 +136,16 @@ function Filter() {
                 ))}
               </>
             )}
-            <button type="button" onClick={handleApplyFilters}>
+            <button
+              type="button"
+              className="boutonSoif"
+              onClick={handleApplyFilters}
+            >
               Valider
             </button>
           </div>
         )}
-        <ul>
+        <ul className="listeFiltre">
           {filteredBreweries.map((brewery) => (
             <li key={brewery.id}>
               {brewery.name} - {brewery.country}

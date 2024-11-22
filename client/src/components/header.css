@@ -1,0 +1,95 @@
+@media screen and (max-width: 767px) {
+  .barreNav {
+    display: none;
+  }
+}
+
+header {
+  display: flex;
+  align-items: center;
+  height: 10em;
+}
+.banner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+.bannerWrap {
+  position: absolute;
+  display: flex;
+  gap: 8em;
+}
+header .h1-logo-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+  color: white;
+  margin-left: 1em;
+}
+header .logoImg {
+  height: 4em;
+  width: 6em;
+  padding-left: 0.5em;
+  filter: invert(1) brightness(2);
+  margin-left: 2em;
+}
+header .burger-menu {
+  background-color: transparent;
+  border: none;
+  font-size: 5rem;
+  outline: none;
+  color: white;
+}
+@media screen and (min-width: 768px) {
+  header {
+    height: 20em;
+  }
+  .burger-menu {
+    display: none;
+  }
+  header .h1-logo-container {
+    flex-direction: row;
+    align-items: center;
+    margin-left: 5em;
+  }
+  header .logoImg {
+    height: 8em;
+    width: 8em;
+  }
+  .barreNav {
+    margin-left: 15em;
+    font-size: xx-large;
+    position: absolute;
+
+    display: flex;
+    flex-direction: row;
+  }
+  .homeLink {
+    padding-right: 1em;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-shadow:
+      2px 2px 0 black, /* Ombre en bas à droite */
+      -2px 2px 0 black, /* Ombre en bas à gauche */
+      2px -2px 0 black, /* Ombre en haut à droite */
+      -2px -2px 0 black, /* Ombre en haut à gauche */
+      2px 0 0 black, /* Ombre à droite */
+      -2px 0 0 black, /* Ombre à gauche */
+      0 2px 0 black, /* Ombre en bas */
+      0 -2px 0 black; /* Ombre en haut */
+    /* Pour que l'effet soit visible */
+  }
+  .homeLink:hover {
+    color: #ec9d00;
+    font-weight: bold;
+    font-size: 1.8em;
+  }
+}
+@media screen and (min-width: 1012px) {
+  .barreNav {
+    margin-left: 21em;
+  }
+}

@@ -1,0 +1,23 @@
+
+  .cardFavoris {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 1.5em;
+  }
+
+
+@media screen and (min-width: 768px) {
+  .cardFavoris {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2.3em;
+  }
+}
+@media screen and (min-width: 1012px) {
+  .cardFavoris {
+    gap: 9em;
+    margin-left: 8.5em;
+  }
+}

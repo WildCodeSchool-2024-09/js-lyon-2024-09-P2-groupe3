@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import MesFavoris from "./pages/MesFavoris";
 import NotreHistoire from "./pages/NotreHistoire";
 
-import { BeerProvider } from "./Contexts/BeerContext";
+import { BreweryProvider } from "./Contexts/BreweryContext";
 
 const router = createBrowserRouter([
   {
@@ -39,9 +39,9 @@ if (rootElement == null) {
 // Render the app inside the root element
 createRoot(rootElement).render(
   <StrictMode>
-    <BeerProvider>
+    <BreweryProvider>
       <RouterProvider router={router} />
-    </BeerProvider>
+    </BreweryProvider>
   </StrictMode>,
 );
 

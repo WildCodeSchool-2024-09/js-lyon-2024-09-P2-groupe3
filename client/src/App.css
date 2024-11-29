@@ -4,13 +4,31 @@
 }
 
 body {
-  background-color: #1e1e1e;
+  background: linear-gradient(135deg, #1e1e1e 0%, #303030 100%);
 }
 
 footer {
   background-color: #ec9d00;
   height: 4em;
-  margin-top: 3em;
   text-align: center;
-  padding-top: 4em;
+  text-align: center;
+  font-size: 1em;
+  padding: 2em;
+}
+
+footer img {
+  height: 2em;
+  margin-left: 0.25em;
+}
+
+.logosFooter {
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.logosFooter:hover {
+  transform: scale(1.1);
+}
+.footerElements {
+  padding-bottom: 0.25em;
 }

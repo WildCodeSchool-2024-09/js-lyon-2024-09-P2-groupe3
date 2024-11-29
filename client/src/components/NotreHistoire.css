@@ -1,0 +1,34 @@
+
+.teamPhoto {
+  width: 24em;
+  object-fit: contain;
+}
+
+.titreMesFavoris {
+  font-size: 2.5em;
+  padding: 1em;
+  text-align: center;
+}
+
+.textePresentation {
+  color: white;
+  padding: 1em;
+  text-align: left;
+  font-size: 1.25em;
+}
+
+@media screen and (min-width: 768px) {
+  .teamPhoto {
+    width: 45em;
+  }
+}
+@media screen and (min-width: 1012px) {
+  .teamPhoto {
+    width: 60em;
+  }
+  .textePresentation {
+    font-size: 1.5em;
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+}
